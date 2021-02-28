@@ -1,5 +1,5 @@
 
-# valheim-server
+# Valheim server
  ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/z3orc/valheim-docker?style=for-the-badge) &nbsp;&nbsp; ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/z3orc/valheim-docker/DOCKER?style=for-the-badge) &nbsp;&nbsp; ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/z3orc/valheim-server?style=for-the-badge)  &nbsp;&nbsp; ![Docker Pulls](https://img.shields.io/docker/pulls/z3orc/valheim-server?style=for-the-badge) 
 ## Info
 Based on "cm2network/steamcmd".
