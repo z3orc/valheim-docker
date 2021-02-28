@@ -2,6 +2,8 @@
 # valheim-server
 
 ## Info
+Based on "cm2network/steamcmd".
+
 The "valheim_data" volume is where the server files downloaded form SteamCMD are stored. "valheim_save" is where the world-file is stored.
 
 ## Installation/usage
