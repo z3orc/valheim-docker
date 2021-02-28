@@ -1,4 +1,4 @@
-FROM cm2network/steamcmd:latest
+FROM cm2network/steamcmd:steam
 
 RUN mkdir -p /home/steam/valheim && mkdir -p /home/steam/.config/unity3d/IronGate/Valheim
 
