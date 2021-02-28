@@ -1,7 +1,5 @@
 FROM cm2network/steamcmd
 
-LABEL maintainer superpowerpounder@gmail.com
-
 RUN mkdir -p /home/steam/valheim && mkdir -p /home/steam/.config/unity3d/IronGate/Valheim
 
 WORKDIR /home/steam/valheim
