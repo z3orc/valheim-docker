@@ -2,7 +2,7 @@ name: DOCKER
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
     
 jobs:
 
