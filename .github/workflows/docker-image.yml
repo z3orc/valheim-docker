@@ -7,7 +7,7 @@ on:
 jobs:
 
   build:
-    runs-on: cm2network/steamcmd
+    runs-on: ubuntu-latest
     steps:
     
       - name: Check Out Repo 
