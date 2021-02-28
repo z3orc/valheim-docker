@@ -4,7 +4,7 @@ RUN mkdir -p /home/steam/valheim && mkdir -p /home/steam/.config/unity3d/IronGat
 
 WORKDIR /home/steam/valheim
 
-ADD entrypoint.sh entrypoint.sh
+COPY entrypoint.sh /home/steam/valheim
 
 EXPOSE 2456-2458/udp
 ENV NAME="My server"
