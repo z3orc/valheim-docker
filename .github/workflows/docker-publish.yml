@@ -1,7 +1,9 @@
 name: Docker
 
 on:
-  push:
+  release:
+    types: # This configuration does not affect the page_build event above
+      - created
     # Publish `master` as Docker `latest` image.
     branches:
       - master
@@ -35,13 +37,13 @@ jobs:
             docker build . --file Dockerfile
           fi
 
-  remove_oldgpr:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/delete-package-versions@v1
-      with:
-        package-name: 'valheimserver'
+  # remove_oldgpr:
+  #   needs: test
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/delete-package-versions@v1
+  #     with:
+  #       package-name: 'valheimserver'
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push_gpr:
