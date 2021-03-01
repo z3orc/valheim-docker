@@ -37,9 +37,10 @@ jobs:
           fi
 
   remove_oldgpr:
+    steps:
     - uses: actions/delete-package-versions@v1
-    with:
-      package-name: 'valheimserver'
+      with:
+        package-name: 'valheimserver'
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push_gpr:
