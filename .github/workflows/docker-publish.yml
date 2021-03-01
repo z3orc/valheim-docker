@@ -36,6 +36,7 @@ jobs:
           fi
 
   remove_oldgpr:
+    needs: test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/delete-package-versions@v1
