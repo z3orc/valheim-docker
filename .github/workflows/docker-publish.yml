@@ -37,7 +37,7 @@ jobs:
           fi
 
   remove_oldgpr:
-  - uses: actions/delete-package-versions@v1
+    - uses: actions/delete-package-versions@v1
     with:
       package-name: 'valheimserver'
   # Push image to GitHub Packages.
