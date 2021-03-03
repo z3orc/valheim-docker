@@ -11,6 +11,7 @@ ENV NAME="My server"
 ENV PASSWORD="secret"
 ENV WORLD="Dedicated"
 ENV PORT=2456
+ENV PUBLIC=1
 
 ENTRYPOINT ["/bin/bash" , "entrypoint.sh"]
 

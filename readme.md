@@ -20,5 +20,6 @@ docker run -d \
     -e NAME="My server" \
     -e WORLD="Dedicated" \
     -e PASSWORD="secret" \
+    -e PUBLIC=1 \
     z3orc/valheim-server
 ```
