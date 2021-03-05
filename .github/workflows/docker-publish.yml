@@ -129,7 +129,7 @@ jobs:
           docker push $IMAGE_ID:$VERSION
 
   push_gameserver_docker:
-    needs: test
+    needs: test-gameserver
     runs-on: ubuntu-latest
     steps:
 
