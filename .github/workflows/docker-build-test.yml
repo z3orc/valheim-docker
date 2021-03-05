@@ -9,7 +9,7 @@ on:
 jobs:
   # Run tests.
   # See also https://docs.docker.com/docker-hub/builds/automated-testing/
-  test:
+  test-gameserver:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,5 +17,19 @@ jobs:
 
       - name: Run tests
         run: |
-            docker build ./server --file Dockerfile
+            cd server
+            docker build . --file Dockerfile
             docker build ./backup --file Dockerfile
+            
+  test-backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run tests
+        run: |
+            cd backup
+            docker build . --file Dockerfile
+            
+            
