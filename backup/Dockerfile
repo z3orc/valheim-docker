@@ -10,7 +10,7 @@ RUN mkdir -p /home/steam/valheimbackup && mkdir -p /home/steam/valheimbackup/mnt
 
 COPY ./backup.sh /home/steam/valheimbackup
 
-COPY cronjobs /etc/crontabs/steam
+COPY ./entrypoint.sh /home/steam/valheimbackup
 
 USER root
 
@@ -19,5 +19,7 @@ RUN chown -R steam /home/steam/valheimbackup/backup.sh
 USER steam
 
 WORKDIR /home/steam/valheimbackup
+
+ENTRYPOINT [ "./entrypoint.sh" ]
 
 VOLUME ["/home/steam/valheimbackup/mnt", "/home/steam/valheimbackup/dest"]
