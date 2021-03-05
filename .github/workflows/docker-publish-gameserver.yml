@@ -1,7 +1,9 @@
 name: Docker-gameserver
 
 on:
-  push:
+  release:
+    types: # This configuration does not affect the page_build event above
+      - released
     # Publish `master` as Docker `latest` image.
     branches:
       - master
