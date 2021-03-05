@@ -14,7 +14,7 @@ COPY ./entrypoint.sh /home/steam/valheimbackup
 
 USER root
 
-RUN chown -R steam /home/steam/valheimbackup/backup.sh
+RUN chown -R steam /home/steam/valheimbackup/backup.sh && chown -R steam /home/steam/valheimbackup/entrypoint.sh
 
 USER steam
 
