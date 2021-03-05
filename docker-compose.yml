@@ -1,0 +1,22 @@
+version: '3'
+services: 
+  gameserver:
+    build: ./server
+    ports: 
+      - '2456-2458:2456-2458/udp'
+    environment: 
+      NAME: "My server"
+      WORLD: "Dedicated"
+      PASSWORD: "secret"
+      PUBLIC: "1"
+    volumes: 
+      - valheim_data:/home/steam/valheim
+      - valheim_save:/home/steam/.config/unity3d/IronGate/Valheim
+      
+  backup:
+    build: ./backup
+    environment: 
+      WORLD: "Dedicated"
+    volumes:
+      - valheim_save:/home/steam/valheimbackup/mnt
+      - /home/valheim/backup:/home/steam/valheimbackup/dest
