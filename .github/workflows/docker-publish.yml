@@ -63,7 +63,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build ./server --file Dockerfile --tag $IMAGE_NAME
+        run:
+          - cd /server
+          - docker build . --file Dockerfile --tag $IMAGE_NAME2
 
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
@@ -99,7 +101,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build ./backup --file Dockerfile --tag $IMAGE_NAME2
+        run: 
+        - cd /backup
+        - docker build . --file Dockerfile --tag $IMAGE_NAME2
 
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
