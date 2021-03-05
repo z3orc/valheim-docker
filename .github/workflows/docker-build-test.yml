@@ -19,7 +19,6 @@ jobs:
         run: |
             cd server
             docker build . --file Dockerfile
-            docker build ./backup --file Dockerfile
             
   test-backup:
     runs-on: ubuntu-latest
