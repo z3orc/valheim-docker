@@ -19,8 +19,9 @@ services:
       WORLD: "Dedicated"
     volumes:
       - valheim_save:/home/steam/valheimbackup/mnt
-      - /home/valheim/backup:/home/steam/valheimbackup/dest
+      - valheim_backup:/home/steam/valheimbackup/dest
 
 volumes:
   valheim_data:
-  valheim_save: 
+  valheim_save:
+  valheim_backup: 
