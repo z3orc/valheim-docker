@@ -14,13 +14,13 @@ COPY ./backup.sh /home/steam/valheimbackup
 
 COPY ./entrypoint.sh /home/steam/valheimbackup
 
+WORKDIR /home/steam/valheimbackup
+
 USER root
 
-RUN chown -R steam /home/steam/valheimbackup/backup.sh && chown -R steam /home/steam/valheimbackup/entrypoint.sh && chmod +x entrypoint.sh && chmod +x backup.sh
+RUN chmod +x entrypoint.sh && chmod +x backup.sh && chown -R steam backup.sh && chown -R steam entrypoint.sh
 
 USER steam
-
-WORKDIR /home/steam/valheimbackup
 
 ENTRYPOINT [ "./entrypoint.sh" ]
 
