@@ -1,10 +1,10 @@
 version: '3'
 services: 
   gameserver:
-    build:
-      context: ./server
-      dockerfile: Dockerfile
-    image: z3orc/valheim-server
+    # build:
+    #   context: ./server
+    #   dockerfile: Dockerfile
+    image: z3orc/valheim-docker
     ports: 
       - '2456-2458:2456-2458/udp'
     environment: 
@@ -21,10 +21,10 @@ services:
   backup:
     depends_on: 
       - gameserver
-    image: z3orc/valheim-backup
-    build:
-      context: ./backup
-      dockerfile: Dockerfile
+    image: z3orc/gameserver-backup
+    # build:
+    #   context: ./backup
+    #   dockerfile: Dockerfile
     environment: 
       WORLD: "Dedicated"
     volumes:

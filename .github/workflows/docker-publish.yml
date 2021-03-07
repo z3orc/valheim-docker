@@ -63,7 +63,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./server
-          file: ./Dockerfile
+          file: ./server/Dockerfile
           push: true
           tags: z3orc/valheim-server:latest
 
@@ -93,7 +93,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./backup
-          file: ./Dockerfile
+          file: ./backup/Dockerfile
           push: true
           tags: z3orc/gameserver-backup:latest
 
