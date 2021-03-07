@@ -18,7 +18,7 @@ on:
 jobs:
   # Run tests.
   # See also https://docs.docker.com/docker-hub/builds/automated-testing/
-  test-gameserver:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,19 +28,8 @@ jobs:
         run: |
             cd server
             docker build . --file Dockerfile
-            
-  test-backup:
-    runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Run tests
-        run: |
-            cd backup
-            docker build . --file Dockerfile
-  
-  push_gameserver:
+  push:
     needs: test-gameserver
     runs-on: ubuntu-latest
     steps:
@@ -62,38 +51,10 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./server
+          context: ./
+          file: ./Dockerfile
           push: true
           tags: z3orc/valheim-server:latest
-
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
-
-  push_backup:
-    needs: test-backup
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Check Out Repo
-        uses: actions/checkout@v2
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Push
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-          context: ./backup
-          push: true
-          tags: z3orc/gameserver-backup:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
