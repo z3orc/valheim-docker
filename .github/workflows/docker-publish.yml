@@ -30,7 +30,7 @@ jobs:
             docker build . --file Dockerfile
 
   push:
-    needs: test-gameserver
+    needs: test
     runs-on: ubuntu-latest
     steps:
 
