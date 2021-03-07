@@ -26,7 +26,6 @@ jobs:
 
       - name: Run tests
         run: |
-            cd server
             docker build . --file Dockerfile
 
   push:
