@@ -18,19 +18,19 @@ services:
     restart: on-failure
     init: true
       
-  backup:
-    depends_on: 
-      - gameserver
-    image: z3orc/gameserver-backup
-    # build:
-    #   context: ./backup
-    #   dockerfile: Dockerfile
-    environment: 
-      WORLD: "Dedicated"
-    volumes:
-      - valheim_save:/home/steam/valheimbackup/mnt
-      - valheim_backup:/home/steam/valheimbackup/dest
-    restart: on-failure
+  # backup:
+  #   depends_on: 
+  #     - gameserver
+  #   image: z3orc/gameserver-backup
+  #   # build:
+  #   #   context: ./backup
+  #   #   dockerfile: Dockerfile
+  #   environment: 
+  #     WORLD: "Dedicated"
+  #   volumes:
+  #     - valheim_save:/home/steam/valheimbackup/mnt
+  #     - valheim_backup:/home/steam/valheimbackup/dest
+  #   restart: on-failure
 
 volumes:
   valheim_data:
