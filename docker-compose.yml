@@ -1,38 +1,38 @@
 version: '3'
-services: 
+services:
   gameserver:
-    # build:
-    #   context: ./server
-    #   dockerfile: Dockerfile
-    image: z3orc/valheim-docker
-    ports: 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: z3orc/valheim-server:latest
+    ports:
       - '2456-2458:2456-2458/udp'
-    environment: 
+    environment:
       NAME: "My server"
       WORLD: "Dedicated"
       PASSWORD: "secret"
       PUBLIC: "1"
-    volumes: 
+    volumes:
       - valheim_data:/home/steam/valheim
       - valheim_save:/home/steam/.config/unity3d/IronGate/Valheim
     restart: on-failure
     init: true
-      
-  # backup:
-  #   depends_on: 
-  #     - gameserver
-  #   image: z3orc/gameserver-backup
-  #   # build:
-  #   #   context: ./backup
-  #   #   dockerfile: Dockerfile
-  #   environment: 
-  #     WORLD: "Dedicated"
-  #   volumes:
-  #     - valheim_save:/home/steam/valheimbackup/mnt
-  #     - valheim_backup:/home/steam/valheimbackup/dest
-  #   restart: on-failure
+
+  backup:
+    depends_on:
+      - gameserver
+    image: z3orc/gameserver-backup:latest
+    # build:
+    #   context: ./backup
+    #   dockerfile: Dockerfile
+    environment:
+      WORLD: "Dedicated"
+    volumes:
+      - valheim_save:/home/steam/valheimbackup/mnt
+      - valheim_backup:/home/steam/valheimbackup/dest
+    restart: on-failure
 
 volumes:
   valheim_data:
   valheim_save:
-  valheim_backup: 
+  valheim_backup:
