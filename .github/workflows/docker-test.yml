@@ -18,5 +18,3 @@ jobs:
       - name: Run tests
         run: |
             docker build . --file Dockerfile
-            
-            
