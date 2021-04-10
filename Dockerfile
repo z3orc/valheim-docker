@@ -15,6 +15,6 @@ ENV WORLD="Dedicated"
 ENV PORT=2456
 ENV PUBLIC=1
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/bin/bash" , "entrypoint.sh"]
 
 VOLUME [ "/home/steam/valheim", "/home/steam/.config/unity3d/IronGate/Valheim" ]
