@@ -8,8 +8,6 @@ WORKDIR /home/steam/valheim
 
 COPY entrypoint.sh /home/steam/valheim
 
-RUN chmod +x entrypoint.sh
-
 EXPOSE 2456-2458/udp
 ENV NAME="My server"
 ENV PASSWORD="secret"
@@ -17,6 +15,6 @@ ENV WORLD="Dedicated"
 ENV PORT=2456
 ENV PUBLIC=1
 
-ENTRYPOINT ["/bin/bash", "-c" , "exec ./entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
 
 VOLUME [ "/home/steam/valheim", "/home/steam/.config/unity3d/IronGate/Valheim" ]
