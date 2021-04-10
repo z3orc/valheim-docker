@@ -16,7 +16,6 @@ services:
       - valheim_data:/home/steam/valheim
       - valheim_save:/home/steam/.config/unity3d/IronGate/Valheim
     restart: on-failure
-    init: true
 
   # backup:
   #   depends_on:
