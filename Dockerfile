@@ -9,9 +9,9 @@ WORKDIR /home/steam/valheim
 COPY entrypoint.sh /home/steam/valheim
 
 EXPOSE 2456-2458/udp
-ENV NAME="My server"
+ENV SERVER_NAME="My server"
 ENV PASSWORD="secret"
-ENV WORLD="Dedicated"
+ENV WORLD_NAME="Dedicated"
 ENV PORT=2456
 ENV PUBLIC=1
 
